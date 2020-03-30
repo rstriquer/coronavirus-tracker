@@ -1,4 +1,4 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -12,7 +12,8 @@
 	<artifactId>coronavirus-tracker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>coronavirus-tracker</name>
-	<description>Demo project for Spring Boot</description>
+	<description>coronavirus-tracker</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>12</java.version>
@@ -54,7 +55,6 @@
    <dependency>
      <groupId>org.springframework</groupId>
      <artifactId>spring-web</artifactId>
-     <version>5.1.9.RELEASE</version>
    </dependency>
  
  </dependencies>
@@ -64,6 +64,28 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+						<goal>build-info</goal>
+						</goals>
+						<configuration>
+						<additionalProperties>
+							<encoding.source>${project.build.sourceEncoding}</encoding.source>
+							<encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
+							<java.source>${maven.compiler.source}</java.source>
+							<java.target>${maven.compiler.target}</java.target>
+						</additionalProperties>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<useIncrementalCompilation>false</useIncrementalCompilation>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

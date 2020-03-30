@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>COVI19 Coronavirus Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <h1>COVI19 Coronavirus Tracker</h1>
+    <p>This application lists the current numver of cases reported across the globe </p>
+    <p>Application developed following tutorial from <a href="https://youtu.be/8hjNG9GZGnQ">https://youtu.be/8hjNG9GZGnQ</a></p>
+
+    <div class="jumbotron">
+        <h1 class="display-4" th:text="${#numbers.formatDecimal(totalReportedCases, 1, 'DEFAULT', 0, 'DEFAULT')}"></h1>
+        <p class="lead">Total cases reported as of today</p>
+        <hr class="my-4">
+        <p>
+            <span>New cases reported since previews day: </span>
+            <span th:text="${#numbers.formatDecimal(totalNewCases, 1, 'DEFAULT', 0, 'DEFAULT')}"></span>
+        </p>
+    </div>
+
+    <div class="container">
+
+        <table class="table">
+            <tr>
+                <th>State</th>
+                <th>Country</th>
+                <th>Total cases reported</th>
+                <th>Changes since last day</th>
+            </tr>
+            <tr th:each="locationStat : ${locationStats}">
+                <td th:text="locationStat.state}"></td>
+                <td th:text="locationStat.country}"></td>
+                <td class="text-right" th:text="${#numbers.formatDecimal(locationStat.latestTotalCases, 1, 'DEFAULT', 0, 'DEFAULT')}">110</td>
+                <td class="text-right" th:text="${#numbers.formatDecimal(locationStat.diffFromPrevDay, 1, 'DEFAULT', 0, 'DEFAULT')}">0</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+
+</html>
