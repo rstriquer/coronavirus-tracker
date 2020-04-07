@@ -69,12 +69,12 @@
 						<goal>build-info</goal>
 						</goals>
 						<configuration>
-						<additionalProperties>
-							<encoding.source>${project.build.sourceEncoding}</encoding.source>
-							<encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
-							<java.source>${maven.compiler.source}</java.source>
-							<java.target>${maven.compiler.target}</java.target>
-						</additionalProperties>
+							<additionalProperties>
+								<encoding.source>${project.build.sourceEncoding}</encoding.source>
+								<encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
+								<java.source>${maven.compiler.source}</java.source>
+								<java.target>${maven.compiler.target}</java.target>
+							</additionalProperties>
 						</configuration>
 					</execution>
 				</executions>
@@ -90,6 +90,16 @@
 						<goals><goal>copy-dependencies</goal></goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<processTypes>
+						<web>java -jar target/coronavirus-tracker-0.0.1-SNAPSHOT.jar --server.port=80</web>
+					</processTypes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

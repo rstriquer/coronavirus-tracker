@@ -13,3 +13,9 @@ public class CoronavirusTrackerApplication {
 	}
 
 }
+/*
+/usr/java/jdk-12.0.2/bin/java
+		-Dfile.encoding=UTF-8
+		-classpath ./target/classes:./target/dependency
+		io.javabrains.coronavirustracker.CoronavirusTrackerApplication
+ */
