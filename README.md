@@ -11,6 +11,10 @@ http://www.heroku.com to make the application available dynamically and online t
 
 To see the application running, go to https://rstriquer-coronavirus-tracker.herokuapp.com/
 
+Bellow application image
+
+![Corona-virus tracker Java Maven version](https://github.com/rstriquer/coronavirus-tracker/blob/master/src/main/resources/static/screenshot-sample.png)
+
 # Database
 
 The data is the same repository for the **2019 Novel Coronavirus Visual Dashboard** operated by the **Johns Hopkins
