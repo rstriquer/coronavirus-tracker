@@ -37,7 +37,7 @@ public class CoronavirusDataService
         List<LocationStats> newStats = new ArrayList<>();
         HttpClient client = HttpClient.newHttpClient();
         try {
-            System.out.println("\\-> Loading CSV file.");
+            System.out.println("\\-> Loading CSV file;");
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(VIRUS_DATA_URL))
                     .build();
@@ -59,7 +59,7 @@ public class CoronavirusDataService
                 newStats.add(locationStats);
             }
             this.allStats = newStats;
-            System.out.println("   \\-> Donne");
+            System.out.println("   \\-> Donne!");
         } catch (Exception e) {
             System.out.println("Unable to search the requested URL");
         }
