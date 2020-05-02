@@ -20,21 +20,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-el</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-websocket</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
@@ -100,18 +85,9 @@
 				<version>3.0.1</version>
 				<executions>
 					<execution>
+						<id>copy-dependencies</id>
 						<phase>package</phase>
-						<goals><goal>copy</goal></goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.heroku</groupId>
-									<artifactId>webapp-runner</artifactId>
-									<version>9.0.30.0</version>
-									<destFileName>webapp-runner.jar</destFileName>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
+						<goals><goal>copy-dependencies</goal></goals>
 					</execution>
 				</executions>
 			</plugin>
@@ -121,7 +97,7 @@
 				<version>3.0.2</version>
 				<configuration>
 					<processTypes>
-						<web>java -jar target/coronavirus-tracker-0.0.1-SNAPSHOT.jar --server.port=80 target/*.war</web>
+						<web>java -jar target/coronavirus-tracker-0.0.1-SNAPSHOT.jar --server.port=8080</web>
 					</processTypes>
 				</configuration>
 			</plugin>
