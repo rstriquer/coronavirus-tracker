@@ -25,4 +25,4 @@ You can access the repository directly in its original directory at https://gith
 
 # Terms of use
 
-this repository is made available as is, if guarantees of operation.
+This repository is made available as is, if guarantees of operation.
